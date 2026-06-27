@@ -12,7 +12,7 @@ const Button = ({
     white: "bg-white hover:bg-purple-50 text-purple-600 shadow-sm",
     ghost:
       "border-2 border-purple-600 text-purple-600 bg-transparent hover:bg-purple-5",
-    null: "bg-white",
+    null: "bg-transparent",
   };
 
   return (

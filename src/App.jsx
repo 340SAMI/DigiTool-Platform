@@ -1,3 +1,4 @@
+import CTA from "./components/CTA";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
@@ -21,6 +22,7 @@ const App = () => {
           <Pricing />
         </main>
       </div>
+      <CTA />
       <Footer />
     </>
   );
