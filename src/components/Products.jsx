@@ -6,7 +6,16 @@ import Cart from "./Cart";
 const Products = ({ cartItems, setCartItems }) => {
   const [selectCart, setSelectCart] = useState(false);
   const handleAddToCart = (product) => {
+    const isAlreadyInCart = cartItems.some((item) => item.id === product.id);
+    if (isAlreadyInCart) return;
     setCartItems([...cartItems, product]);
+  };
+  const handleRemoveFromCart = (productId) => {
+    console.log("I was clicked");
+    setCartItems(cartItems.filter((item) => item.id !== productId));
+  };
+  const clearCart = () => {
+    setCartItems([]);
   };
   console.log(cartItems);
   return (
@@ -35,7 +44,11 @@ const Products = ({ cartItems, setCartItems }) => {
         </div>
       </div>
       {selectCart ? (
-        <Cart cartItems={cartItems} />
+        <Cart
+          cartItems={cartItems}
+          onRemoveFromCart={handleRemoveFromCart}
+          clearCart={clearCart}
+        />
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {products.map((product) => (

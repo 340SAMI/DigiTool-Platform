@@ -1,8 +1,8 @@
 import Button from "./shared/Button";
-const Navbar = () => {
+const Navbar = ({ cartItems }) => {
   return (
     <>
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <div className="flex items-center justify-between">
           <h3 className="bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent font-extrabold text-4xl">
             DigiTools
@@ -27,6 +27,7 @@ const Navbar = () => {
           </ul>
           <div className="flex items-center gap-4">
             <img src="./cart.svg" className="size-4" />
+            {cartItems.length > 0 && <span>({cartItems.length})</span>}
             <button>Login</button>
             <div>
               <Button>Get Started</Button>
@@ -34,14 +35,16 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="md:hidden">
+      <div className="lg:hidden">
         <div className="flex items-center justify-between">
           <h3 className="bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent font-extrabold text-2xl">
             DigiTools
           </h3>
-          <Button>
-            <img src="./menu.svg" className="size-6" />
-          </Button>
+          <div>
+            <Button className="block">
+              <img src="./menu.svg" className="size-6" />
+            </Button>
+          </div>
         </div>
       </div>
     </>

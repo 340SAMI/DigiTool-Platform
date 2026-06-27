@@ -1,4 +1,4 @@
-const Cart = ({ cartItems }) => {
+const Cart = ({ cartItems, onRemoveFromCart, clearCart }) => {
   const totalAmount = cartItems.reduce((acc, item) => acc + item.price, 0);
   return (
     <div className="w-full max-w-4xl mx-auto px-4 py-8 font-sans">
@@ -27,7 +27,10 @@ const Cart = ({ cartItems }) => {
                 </div>
               </div>
 
-              <button className="text-pink-500 hover:text-pink-600 font-semibold text-sm transition-colors cursor-pointer px-2 py-1">
+              <button
+                onClick={() => onRemoveFromCart(item.id)}
+                className="text-pink-500 hover:text-pink-600 font-semibold text-sm transition-colors cursor-pointer px-2 py-1"
+              >
                 Remove
               </button>
             </div>
@@ -44,7 +47,7 @@ const Cart = ({ cartItems }) => {
 
       <button
         className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-6 rounded-full text-center text-sm transition-all shadow-md active:scale-[0.99] cursor-pointer"
-        onClick={() => console.log("Proceeding to checkout...")}
+        onClick={clearCart}
       >
         Proceed To Checkout
       </button>
