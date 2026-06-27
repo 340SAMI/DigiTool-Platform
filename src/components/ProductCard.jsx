@@ -32,7 +32,7 @@ function CheckIcon() {
     </svg>
   );
 }
-function ProductCard({ product }) {
+function ProductCard({ product, handleOnClick }) {
   const tag = tagStyles[product.tagType] || tagStyles.new;
 
   return (
@@ -88,7 +88,7 @@ function ProductCard({ product }) {
       </ul>
 
       {/* CTA Button */}
-      <Button>Buy Now</Button>
+      <Button onClick={() => handleOnClick(product)}>Buy Now</Button>
     </div>
   );
 }

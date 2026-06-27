@@ -2,6 +2,7 @@ const Button = ({
   variant = "default",
   className = "",
   children,
+  onClick,
   ...props
 }) => {
   const baseClass =
@@ -17,6 +18,7 @@ const Button = ({
 
   return (
     <button
+      onClick={onClick}
       className={`${baseClass} ${variants[variant] || variants.default} ${className}`}
       {...props}
     >

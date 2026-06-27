@@ -1,7 +1,14 @@
 import Button from "./shared/Button";
 import products from "../data/product.json";
 import ProductCard from "./ProductCard";
-const Products = () => {
+import { useState } from "react";
+import Cart from "./Cart";
+const Products = ({ cartItems, setCartItems }) => {
+  const [selectCart, setSelectCart] = useState(false);
+  const handleAddToCart = (product) => {
+    setCartItems([...cartItems, product]);
+  };
+  console.log(cartItems);
   return (
     <section className="container mx-auto space-y-4 md:space-y-8 lg:space-y-12">
       <div className="text-center space-y-4">
@@ -13,15 +20,33 @@ const Products = () => {
           designed to boost your productivity and creativity.
         </p>
         <div className="flex items-center justify-between gap-2 w-fit mx-auto">
-          <Button>Products</Button>
-          <Button variant={"null"}>Cart (2)</Button>
+          <Button
+            variant={selectCart ? "null" : "default"}
+            onClick={() => setSelectCart(false)}
+          >
+            Products
+          </Button>
+          <Button
+            variant={selectCart ? "default" : "null"}
+            onClick={() => setSelectCart(true)}
+          >
+            Cart ({cartItems.length})
+          </Button>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      {selectCart ? (
+        <Cart cartItems={cartItems} />
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {products.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              handleOnClick={handleAddToCart}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 };
