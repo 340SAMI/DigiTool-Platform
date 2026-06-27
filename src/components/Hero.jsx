@@ -38,11 +38,11 @@ const Hero = () => {
           software—all in one place. Start creating faster today. Explore
           Products
         </p>
-        <div className="flex justify-between w-fit gap-4">
+        <div className="flex justify-between w-xs gap-4">
           <Button>Explore Products</Button>
-          <Button variant={"ghost"} className="flex items-center gap-2">
+          <Button variant={"ghost"} className="flex items-center gap-1">
             <img src={playIcon} className="size-6" />
-            Watch Demo
+            <span>Watch Demo</span>
           </Button>
         </div>
       </div>

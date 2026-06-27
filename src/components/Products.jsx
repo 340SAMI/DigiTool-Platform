@@ -12,7 +12,7 @@ const Products = () => {
           Choose from our curated collection of premium digital products
           designed to boost your productivity and creativity.
         </p>
-        <div>
+        <div className="flex items-center justify-between gap-2 w-fit mx-auto">
           <Button>Products</Button>
           <Button variant={"null"}>Cart (2)</Button>
         </div>
