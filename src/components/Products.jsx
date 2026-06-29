@@ -3,16 +3,20 @@ import products from "../data/product.json";
 import ProductCard from "./ProductCard";
 import { useState } from "react";
 import Cart from "./Cart";
+import { toast } from "react-toastify";
 const Products = ({ cartItems, setCartItems }) => {
   const [selectCart, setSelectCart] = useState(false);
   const handleAddToCart = (product) => {
     const isAlreadyInCart = cartItems.some((item) => item.id === product.id);
     if (isAlreadyInCart) return;
     setCartItems([...cartItems, product]);
+    toast.success("addded successfully")
+
   };
   const handleRemoveFromCart = (productId) => {
     console.log("I was clicked");
     setCartItems(cartItems.filter((item) => item.id !== productId));
+    toast.success("removed successfully")
   };
   const clearCart = () => {
     setCartItems([]);

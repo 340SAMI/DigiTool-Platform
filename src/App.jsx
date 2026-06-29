@@ -7,6 +7,7 @@ import Pricing from "./components/Pricing";
 import Products from "./components/Products";
 import Stats from "./components/Stats";
 import Steps from "./components/Steps";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -26,6 +27,7 @@ const App = () => {
       </div>
       <CTA />
       <Footer />
+      <ToastContainer position="top-right" autoClose={2000} />
     </>
   );
 };
